@@ -9,6 +9,30 @@
 * import fonts into the app using the font loader and following FVD guidelines found here: https://github.com/typekit/fvd and here https://github.com/typekit/webfontloader
 * import statements have an alias from webpack that will transpose the @ symbols into the src directory. This remove the need for figuring out all the different relative imports, it can all be relative to src.
 * Montserrat font is included as an example of how to use the font-loader, feel free to delete.
+* delay-timeout
+* config module
+* Timeout explanation - just include the component
+* EventBus explanation - link article
+* reachjs webpack config info
+* triple tap for admin panel
+* can passphrase protext admin panel. Must set an ADMIN_PASS env var at build time. Off by default
+
+## Vue resources
+
+### Essential Links
+
+"https://vuejs.org" - Core Docs
+"https://forum.vuejs.org" - Forum
+"http://chat.vuejs.org/" - Vue Community Chat
+"https://twitter.com/vuejs" - Twitter
+"http://vuejs-templates.github.io/webpack/" - Docs for This Template
+
+### Ecosystem
+
+"http://router.vuejs.org/" - vue-router
+"http://vuex.vuejs.org/" - vuex
+"http://vue-loader.vuejs.org/" - vue-loader
+"https://github.com/vuejs/awesome-vue" - awesome-vue
 
 ## Build Setup
 

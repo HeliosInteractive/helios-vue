@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import Hello from '@/components/Hello';
-import Version from '@/components/helios/Version';
+import Sample from '@/components/helios/Sample';
+import AdminPanel from '@/components/helios/AdminPanel';
 
 Vue.use(Router);
 
@@ -10,13 +10,13 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Hello',
-      component: Hello,
+      name: 'Sample',
+      component: Sample,
     },
     {
-      path: '/version',
-      name: 'Version',
-      component: Version,
+      path: '/admin',
+      name: 'AdminPanel',
+      component: AdminPanel,
     },
   ],
 });

@@ -3,6 +3,7 @@
 import Vue from 'vue';
 import { crow } from '@helios-interactive/crow';
 
+import './main.css';
 import * as config from './util/config';
 
 Vue.config.productionTip = false;
