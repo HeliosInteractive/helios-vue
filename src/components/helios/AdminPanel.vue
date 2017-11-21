@@ -36,6 +36,7 @@ export default {
   },
   mounted() {
     if (this.requirePassphrase && this.passphraseExists) {
+      // eslint-disable-next-line
       const pass = prompt('What is the password');
       if (pass === process.env.ADMIN_PASS) {
         this.passphraseAccepted = true;

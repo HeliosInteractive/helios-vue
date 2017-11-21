@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <triple-tap></triple-tap>
     <font-loader @font-loaded="fontLoaded"></font-loader>
     <loading-screen v-if="loading || fontLoading"></loading-screen>
 
@@ -9,9 +10,10 @@
 
 <script>
 import router from '@/router';
-
 import FontLoader from '@/components/helios/FontLoader';
 import LoadingScreen from '@/components/helios/LoadingScreen';
+import TripleTap from '@/components/helios/TripleTap';
+
 import EventBus from './components/helios/EventBus';
 
 export default {
@@ -27,6 +29,7 @@ export default {
     FontLoader,
     EventBus,
     LoadingScreen,
+    TripleTap,
   },
   methods: {
     fontLoaded() {
