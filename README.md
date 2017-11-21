@@ -16,9 +16,11 @@
 * reachjs webpack config info
 * triple tap for admin panel
 * can passphrase protext admin panel. Must set an ADMIN_PASS env var at build time. Off by default
+* automatically copy README to dist folder
+* automatically rename helios.config.json to helios.example.config.json
+* testing setup with Karma/Mocha
 
 ## Vue resources
-
 ### Essential Links
 
 "https://vuejs.org" - Core Docs
