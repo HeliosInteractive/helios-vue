@@ -2,6 +2,8 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
 import Sample from '@/components/helios/Sample';
+import SampleTimeout from '@/components/helios/SampleTimeout';
+
 import AdminPanel from '@/components/helios/AdminPanel';
 
 Vue.use(Router);
@@ -12,6 +14,11 @@ export default new Router({
       path: '/',
       name: 'Sample',
       component: Sample,
+    },
+    {
+      path: '/sample-timeout',
+      name: 'SampleTimeout',
+      component: SampleTimeout,
     },
     {
       path: '/admin',

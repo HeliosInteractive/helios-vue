@@ -1,16 +1,10 @@
 // This timeout component can be included on any page that you wish to have timeout functionality
 
 <template>
-  <div class="time-out-container" v-if="timedout">
-    <div class="timeout-card">
-      <div @click="sendBack" class="timeout-close"></div>
-      <div class="fullwidth t-center timeout-cta">{{ timeoutCTA }}</div>
-        <div class="fullwidth t-center bold timeout-countdown">
-          <div>00:{{ remaining > 9 ? remaining : `0${remaining}`}}</div>
-        </div>
-      <div @click.stop="sendBack" class="abbvie-btn yellow-btn timeout-button-continue">{{name ? `Continue as ${name}` : 'Continue'}}</div>
-      <div @click.stop="sendHome" ref="restart" class="abbvie-btn timeout-button-restart">Start Over</div>
-    </div>
+  <div class="timeout-container" v-if="timedout">
+    <h2>{{ timeoutCTA }}</h2>
+    <h1>{{ remaining }}</h1>
+    <h2>{{ timeoutContinue }}</h2>
   </div>
 </template>
 
@@ -22,9 +16,10 @@ export default {
   data() {
     return {
       timeoutCTA: 'Are you still there?',
+      timeoutContinue: 'Tap to Continue.',
       timeoutDismiss: null,
       countDownInterval: null,
-      remaining: parseInt(config.getItem('timeUntilTimeoutDismiss'), 10) / 1000,
+      remaining: parseInt(config.getItem('timeout.timeUntilDismiss'), 10) / 1000,
       timedout: false,
       timer: undefined,
     };
@@ -40,7 +35,7 @@ export default {
     }
   },
   methods: {
-        /**
+    /**
      * This method will be called when the timeout is dismissed via interaction
      */
     onDismissViaInteraction() {
@@ -50,7 +45,14 @@ export default {
      * This method will be called when the timeout is dismissed via timeout
      */
     onDismissViaTimeout() {
-      this.$router.push('/')
+      this.clearTimeout();
+      if (this.timer) {
+        this.timer.stop();
+        this.timer = undefined;
+      }
+      this.setupTimer();
+
+      this.$router.push('/');
     },
     /**
      * Will setup the timer based on value in helios.config
@@ -65,7 +67,7 @@ export default {
       }
 
       // Set how long until timeout
-      let timeUntilTimeout = parseInt(config.getItem('timeUntilTimeout'), 10);
+      const timeUntilTimeout = parseInt(config.getItem('timeout.timeUntilAppear'), 10);
 
       // Add our own customEvent to allow for more fine control of the timeout.
       const awayOpts = {
@@ -84,13 +86,12 @@ export default {
 
         // Set the base value for the timeout screen countdown
         this.remaining =
-          parseInt(config.getItem('timeUntilTimeoutDismiss'), 10) / 1000;
+          parseInt(config.getItem('timeout.timeUntilDismiss'), 10) / 1000;
 
         // Call action when timeout should dismiss
         this.timeoutDismiss = setTimeout(() => {
-          this.timer.stop();
           this.onDismissViaTimeout();
-        }, parseInt(config.getItem('timeUntilTimeoutDismiss'), 10));
+        }, parseInt(config.getItem('timeout.timeUntilDismiss'), 10));
 
         // Count down the timeout screen
         this.countDownInterval = setInterval(() => {
@@ -110,6 +111,7 @@ export default {
      */
     clearTimeout() {
       this.timedout = false;
+
       clearInterval(this.countDownInterval);
       clearTimeout(this.timeoutDismiss);
     },
@@ -119,68 +121,22 @@ export default {
 </script>
 
 <style scoped>
-.time-out-container {
+.timeout-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: white;
-  opacity: 0.97;
+  background-color: #222324;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: var(--darkblue);
-  z-index: 2000;
 }
-
-.timeout-card {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  position: relative;
+.timeout-container h2 {
+  color: #b9c1bd;
 }
-
-.timeout-button-restart {
-  width: 40% !important;
-  position: absolute;
-  top: 1100px;
-  border: 5px var(--purple) solid;
-  background-color: white;
-  color: var(--purple);
-  z-index: 5000;
-}
-.timeout-button-continue {
-  width: 50% !important;
-  position: absolute;
-  top: 800px;
-  z-index: 5000;
-}
-.timeout-close {
-  position: absolute;
-  top: 35px;
-  right: 35px;
-  height: 60px;
-  width: 60px;
-  background-size: contain;
-  background-image: url('/static/img/btn-close.png');
-}
-.timeout-countdown {
-  font-size: 60px;
-  position: absolute;
-  top: 550px;
-}
-.timeout-not-me {
-  font-size: 35px;
-  position: absolute;
-  top: 1000px;
-}
-.timeout-cta {
-  font-size: 50px;
-  position: absolute;
-  top: 350px;
-
+.timeout-container h1 {
+  color: #57c2b2;
 }
 </style>
