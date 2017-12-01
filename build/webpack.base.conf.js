@@ -27,6 +27,15 @@ module.exports = {
       '@': resolve('src')
     }
   },
+  externals: [
+    {
+      fs: 'commonjs fs', // a is not external
+      https: 'commonjs https',
+      http: 'commonjs http',
+      url: 'commonjs url',
+      'form-data': 'commonjs form-data',
+    },
+  ],
   module: {
     rules: [
       {
@@ -47,7 +56,11 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test')]
+        include: [
+          resolve('src'),
+          resolve('test'),
+          path.join(__dirname, '..', 'node_modules', '@helios-interactive', 'reachjs')
+        ],
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
