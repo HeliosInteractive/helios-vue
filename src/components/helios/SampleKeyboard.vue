@@ -1,19 +1,25 @@
 <template>
   <div class="helios-container">
     <div class="helios-header">
-      Sample of timeout
+      Sample of keyboard
     </div>
-
-    <timeout></timeout>
+    <input class="sample-input" type="text" v-model="input">
+    <div class="helios-header">Output: {{ input }}</div>
+    <keyboard></keyboard>
   </div>
 </template>
 
 <script>
-import Timeout from '@/components/helios/Timeout';
+import Keyboard from '@/components/helios/Keyboard';
 
 export default {
+  data() {
+    return {
+      input: undefined,
+    };
+  },
   components: {
-    Timeout,
+    Keyboard,
   },
 };
 </script>
@@ -29,6 +35,7 @@ export default {
   align-content: flex-start;
   font-family: Montserrat, sans-serif;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .helios-header {
   margin-top: 10vh;
@@ -36,5 +43,11 @@ export default {
   width: 100%;
   text-align: center;
   font-weight: normal;
+}
+.sample-input {
+  width: 50vw;
+  line-height: 1.5em;
+  font-size: 3em;
+  margin: 2em;
 }
 </style>

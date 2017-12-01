@@ -49,6 +49,10 @@ If desired, you can password protect the admin panel (this isn't really that sec
 
 You can also access the admin panel from anywhere in the app by triple tapping in the top left corner.
 
+### On Screen Keyboard (Okey)
+
+The app implements a Keyboard component which can be included within any other component in order to add a keyboard to it. The keyboard included in this app is customized in both functionality and styling. It comes with a wide range of characters, and the ability to toggle upper/lower case. It is styled so that it will scale with the size of the window. All of the styling for the keyboard is written in the style block on the component. If you wish to style on your own, you can either use the current styling and customize, or include the original okey.css if you wish. The keyboard component will search for new input fields to bind to on mount and update. If you change input fields out without changing the keyboard, then be sure to trigger a `$forceUpdate` on the keyboard to have it see the new inputs.
+
 ### Readme Copy
 
 The readme will be automatically copied to the build folder.

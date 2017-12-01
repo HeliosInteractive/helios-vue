@@ -2,6 +2,11 @@
   <div id="sample" class="helios-container">
     <h1 class="helios-header">Helios Sample Vue App</h1>
     <img src="/static/images/icons/ms-icon-310x310.png" alt="">
+    <div class="links">
+      <a href="/#/sample-timeout">Sample Timeout</a>
+      <a href="/#/sample-keyboard">Sample Keyboard</a>
+      <a href="/#/admin">Admin</a>
+    </div>
   </div>
 </template>
 
@@ -31,5 +36,17 @@ export default {
   width: 100%;
   text-align: center;
   font-weight: normal;
+}
+.links {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.links a {
+  padding: 0 3em;
+  color:#57c2b2;
+}
+.links a:visited {
+  color:#57c2b2;
 }
 </style>
