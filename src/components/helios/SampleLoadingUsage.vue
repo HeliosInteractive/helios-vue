@@ -1,25 +1,33 @@
 <template>
-  <div id="sample" class="helios-container">
-    <h1 class="helios-header">Helios Sample Vue App</h1>
-    <img src="/static/images/icons/ms-icon-310x310.png" alt="">
-    <div class="links">
-      <a href="/#/sample-timeout">Sample Timeout</a>
-      <a href="/#/sample-keyboard">Sample Keyboard</a>
-      <a href="/#/sample-loading">Sample Loading</a>
-      <a href="/#/admin">Admin</a>
+  <div class="helios-container">
+    <div class="helios-header">
+      Loading screen is opened and closed by sending a message over the EventBus
+    </div>
+    <div class="links helios-header">
+      <a href="#" @click="startLoading">Tap to load</a>
     </div>
   </div>
 </template>
 
 <script>
+import EventBus from '@/components/helios/EventBus';
+
 export default {
+  mounted() {
+  },
+  methods: {
+    startLoading() {
+      EventBus.$emit('OPEN_LOADING_SCREEN');
+
+      setTimeout(() => {
+        EventBus.$emit('CLOSE_LOADING_SCREEN');
+      }, 5000);
+    },
+  },
 };
 </script>
 
 <style scoped>
-#sample {
-  justify-content: center;
-}
 .helios-container {
   height: 100vh;
   width: 100vw;

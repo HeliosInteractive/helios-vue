@@ -53,6 +53,10 @@ You can also access the admin panel from anywhere in the app by triple tapping i
 
 The app implements a Keyboard component which can be included within any other component in order to add a keyboard to it. The keyboard included in this app is customized in both functionality and styling. It comes with a wide range of characters, and the ability to toggle upper/lower case. It is styled so that it will scale with the size of the window. All of the styling for the keyboard is written in the style block on the component. If you wish to style on your own, you can either use the current styling and customize, or include the original okey.css if you wish. The keyboard component will search for new input fields to bind to on mount and update. If you change input fields out without changing the keyboard, then be sure to trigger a `$forceUpdate` on the keyboard to have it see the new inputs.
 
+### Global Event Bus
+
+Within this sample app an EventBus component is used. This is an empty component that is just used to pass messages around. You can see it used on the sample loading usage screen. When the link is clicked an event is emitted to open the loading screen, and then after a set amount of time another event is sent to close the screen. The `App.vue` is listening for these events, and responds by opening/closing the loading screen. You can read more about using an event bus [here](https://alligator.io/vuejs/global-event-bus/). They can be a nice lightweight way to pass messages between components. You can of course replace it all with you're own system (or vuex) if you wish, all up to your preference.
+
 ### Readme Copy
 
 The readme will be automatically copied to the build folder.
@@ -60,6 +64,13 @@ The readme will be automatically copied to the build folder.
 ### ESlint Formatting
 
 ESlint is setup to lint for airbnb ES6 rules. It will also automatically format your files if you have the dev server running. You can edit this in the `webpack.base.conf.js` if you do not want it automatically correcting code for you.
+
+### Webpack Alias
+Import statements have an alias from webpack that will transpose the `@` symbol into the src directory. This remove the need for figuring out all the different relative imports, it can all be relative to src. So if you want to import `/components/helios/TripleTap.vue` you can just write `import TripleTap from '@/components/helios/TripleTap'` regardless of where you are in the project.
+
+### reachjs
+
+reachjs has been included as a dependency, and webpack has been configured to run it through babel on import. If you do not need reachjs support, then you can remove this dependency, or just never import it so that it is not included in the build.
 
 ---
 
@@ -92,11 +103,13 @@ npm run unit
 npm test
 ```
 
-### Webpack Alias
-Import statements have an alias from webpack that will transpose the `@` symbol into the src directory. This remove the need for figuring out all the different relative imports, it can all be relative to src. So if you want to import `/components/helios/TripleTap.vue` you can just write `import TripleTap from '@/components/helios/TripleTap'` regardless of where you are in the project.
-
-
 ---
+
+## Helios resources
+
+* "https://github.com/HeliosInteractive/JS-OnScreen-Keyboard" - Okey
+* "https://github.com/HeliosInteractive/crow" - Crow
+* "https://github.com/HeliosInteractive/reachjs" - reachjs
 
 ## Vue resources
 ### Essential Links
@@ -113,12 +126,3 @@ Import statements have an alias from webpack that will transpose the `@` symbol 
 * "http://vuex.vuejs.org/" - vuex
 * "http://vue-loader.vuejs.org/" - vue-loader
 * "https://github.com/vuejs/awesome-vue" - awesome-vue
-
-
----
-
-## Todo
-
-* EventBus explanation - link article
-* reachjs webpack config info
-* testing setup with Karma/Mocha
