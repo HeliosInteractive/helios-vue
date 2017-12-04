@@ -2,9 +2,9 @@
 
 <template>
   <div class="timeout-container" v-if="timedout">
-    <h2>{{ timeoutCTA }}</h2>
-    <h1>{{ remaining }}</h1>
-    <h2>{{ timeoutContinue }}</h2>
+    <div class="text">{{ timeoutCTA }}</div>
+    <div class="timer">{{ remaining }}</div class="timer">
+    <div class="text">{{ timeoutContinue }}</div>
   </div>
 </template>
 
@@ -123,20 +123,28 @@ export default {
 <style scoped>
 .timeout-container {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #222324;
+  top: 5vh;
+  left: 5vw;
+  width: 90vw;
+  height: 90vh;
+  padding: 10em 0;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.25);
+  background-color: #57c2b2;
+  font-family: Montserrat, sans-serif;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
-.timeout-container h2 {
-  color: #b9c1bd;
+.timeout-container .text {
+  color: #222324;
+  font-size: 5em;
+  font-weight: normal;
 }
-.timeout-container h1 {
-  color: #57c2b2;
+.timeout-container .timer {
+  color: #222324;
+  font-size: 7em;
+  font-weight: normal;
 }
 </style>

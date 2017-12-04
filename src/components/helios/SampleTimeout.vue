@@ -3,6 +3,9 @@
     <div class="helios-header">
       Sample of timeout
     </div>
+    <p>
+      Timeout will appear after x amount of milliseconds of inactiviy. Configured in helios.config.
+    </p>
 
     <timeout></timeout>
   </div>
@@ -28,6 +31,7 @@ export default {
   color: #57c2b2;
   align-content: flex-start;
   font-family: Montserrat, sans-serif;
+  justify-content: center;
   flex-wrap: wrap;
 }
 .helios-header {

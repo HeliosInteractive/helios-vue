@@ -4,7 +4,7 @@
       Loading screen is opened and closed by sending a message over the EventBus
     </div>
     <div class="links helios-header">
-      <a href="#" @click="startLoading">Tap to load</a>
+      <a @click="startLoading">Tap here to load</a>
     </div>
   </div>
 </template>
@@ -13,8 +13,6 @@
 import EventBus from '@/components/helios/EventBus';
 
 export default {
-  mounted() {
-  },
   methods: {
     startLoading() {
       EventBus.$emit('OPEN_LOADING_SCREEN');
@@ -41,7 +39,7 @@ export default {
 }
 .helios-header {
   margin-top: 10vh;
-  font-size: 3em;
+  font-size: 1.5em;
   width: 100%;
   text-align: center;
   font-weight: normal;
@@ -50,6 +48,7 @@ export default {
   width: 100%;
   display: flex;
   justify-content: center;
+  font-size: 3em;
 }
 .links a {
   padding: 0 3em;
