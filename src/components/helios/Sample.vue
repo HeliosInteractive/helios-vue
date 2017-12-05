@@ -2,11 +2,17 @@
   <div id="sample" class="helios-container">
     <h1 class="helios-header">Helios Sample Vue App</h1>
     <img src="/static/images/icons/ms-icon-310x310.png" alt="">
+    <h2 class="fullwidth">Features</h2>
     <div class="links">
       <a href="/#/sample-timeout">Sample Timeout</a>
       <a href="/#/sample-keyboard">Sample Keyboard</a>
       <a href="/#/sample-loading">Sample Loading</a>
-      <a href="/#/admin">Admin</a>
+      <a href="/#/admin">Admin Panel</a>
+    </div>
+    <h2 class="fullwidth">Resources</h2>
+    <div class="links">
+      <a href="https://material.io/icons/">Material Icons  <v-icon color="white">star</v-icon></a>
+      <a href="https://vuetifyjs.com/">Vuetify  <v-icon color="white">layers</v-icon></a>
     </div>
   </div>
 </template>
@@ -38,10 +44,15 @@ export default {
   text-align: center;
   font-weight: normal;
 }
+.fullwidth {
+  width: 100%;
+}
 .links {
   width: 100%;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 2em;
 }
 .links a {
   padding: 0 3em;
