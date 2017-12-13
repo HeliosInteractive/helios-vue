@@ -76,7 +76,7 @@ reachjs has been included as a dependency, and webpack has been configured to ru
 
 ## Jenkins
 
-Setting up this project for Jenkins should be pretty quick if you copy or follow the example project found [here](http://jenkins.heliosinteractive.com:8192/job/Examples/job/Web/job/helios-vue/).
+Setting up this project for Jenkins should be pretty quick if you copy or follow the example project found here.
 
 ---
 
