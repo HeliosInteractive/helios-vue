@@ -1,10 +1,12 @@
 // This timeout component can be included on any page that you wish to have timeout functionality
 
 <template>
-  <div class="timeout-container" v-if="timedout">
-    <div class="text">{{ timeoutCTA }}</div>
-    <div class="timer">{{ remaining }}</div class="timer">
-    <div class="text">{{ timeoutContinue }}</div>
+  <div class="timeout-container" v-if="timedout" @click.stop @touchstart.stop @touchend.stop>
+    <div class="timeout-card">
+      <div class="text">{{ timeoutCTA }}</div>
+      <div class="timer">{{ remaining }}</div class="timer">
+      <div class="text">{{ timeoutContinue }}</div>
+    </div>
   </div>
 </template>
 
@@ -116,7 +118,12 @@ export default {
      * Clears all data relevant to the timeout component
      */
     clearTimeout() {
-      this.timedout = false;
+      // Change this.timedout after the current event processes
+      // This and the event stops on the outer component
+      // will prevent clicks/touches from being sent through the timeout component
+      setTimeout(() => {
+        this.timedout = false;
+      });
 
       clearInterval(this.countDownInterval);
       clearTimeout(this.timeoutDismiss);
@@ -129,10 +136,23 @@ export default {
 <style scoped>
 .timeout-container {
   position: fixed;
-  top: 5vh;
-  left: 5vw;
-  width: 90vw;
-  height: 90vh;
+  top: 0;
+  left: 0;
+  padding: 3em;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.25);
+  font-family: Montserrat, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.timeout-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
   padding: 10em 0;
   box-sizing: border-box;
   box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.25);
@@ -143,12 +163,12 @@ export default {
   justify-content: space-around;
   align-items: center;
 }
-.timeout-container .text {
+.timeout-card .text {
   color: #222324;
   font-size: 5em;
   font-weight: normal;
 }
-.timeout-container .timer {
+.timeout-card .timer {
   color: #222324;
   font-size: 7em;
   font-weight: normal;
