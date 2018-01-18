@@ -25,9 +25,15 @@ export default {
     };
   },
   mounted() {
+    // Only continue if the timeout is enabled
+    if (!config.getItem('timeout.enabled')) { return; }
+
     this.setupTimer();
   },
   beforeDestroy() {
+    // Only continue if the timeout is enabled
+    if (!config.getItem('timeout.enabled')) { return; }
+
     // Clear the interval and timeout so that they do not interfere later
     this.clearTimeout();
     if (this.timer) {

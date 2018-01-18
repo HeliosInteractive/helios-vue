@@ -8,13 +8,3 @@ install:
 
 script:
   - npm run build
-  - mv dist/static/helios.example.config.json dist/static/helios.config.json
-
-deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
-  keep-history: true
-  local-dir: dist
-  on:
-    branch: master

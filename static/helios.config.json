@@ -6,6 +6,7 @@
       "devMode": false
     },
     "timeout": {
+      "enabled": true,
       "timeUntilAppear": 10000,
       "timeUntilDismiss": 10000
     }
@@ -17,6 +18,7 @@
       "devMode": true
     },
     "timeout": {
+      "enabled": false,
       "timeUntilAppear": 10000,
       "timeUntilDismiss": 10000
     }
