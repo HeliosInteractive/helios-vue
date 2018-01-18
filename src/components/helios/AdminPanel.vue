@@ -1,22 +1,23 @@
 <template>
   <div class="helios-container">
-    <div class="helios-header left underline">Dashboard</div>
-    <div class="helios-header small left">
+    <div class="helios-background"></div>
+    <div class="helios-header underline">Dashboard</div>
+    <div class="helios-header small">
       Version: {{ version }}
     </div>
-    <div class="helios-header small left">
+    <div class="helios-header small">
      NODE_ENV: {{ env }}
     </div>
-    <div class="helios-header small left">
+    <div class="helios-header small">
      Config:
     </div>
     <div
       v-if="!requirePassphrase || !passphraseExists || requirePassphrase && passphraseAccepted"
-      class="config-printout left"
+      class="config-printout"
     >
 {{ configJson }}
     </div>
-    <div class="home left" @click="toHome">Home</div>
+    <div class="home" @click="toHome">Home</div>
   </div>
 </template>
 
@@ -61,21 +62,32 @@ export default {
 
 <style scoped>
 .helios-container {
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  min-width: 100vw;
+  width: 100%;
   display: flex;
   text-align: center;
-  background-color: #222324;
   color: #57c2b2;
+  margin: 5vh 5vw;
+  box-sizing: border-box;
   align-content: flex-start;
   font-family: Montserrat, sans-serif;
   flex-wrap: wrap;
+  text-align: left;
+  overflow: scroll;
+}
+.helios-background {
+  background-color: #222324;
+  z-index: -1;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
 .helios-header {
-  margin-top: 10vh;
   font-size: 3em;
   width: 100%;
-  text-align: center;
   font-weight: normal;
 }
 .config-printout {
@@ -88,11 +100,6 @@ export default {
   padding: 1em;
   box-sizing: border-box;
   margin-top: 1em;
-}
-.left {
-  text-align: left;
-  margin-left: 10vh;
-  margin-right: 10vh;
 }
 .small {
   font-size: 2em;
