@@ -47,5 +47,6 @@ export default {
   left: 0;
   width: 5vh;
   height: 5vh;
+  z-index: 5000;
 }
 </style>
