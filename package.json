@@ -20,6 +20,7 @@
     "away": "git+https://github.com/adammcfadden/away.git",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
+    "vuetify": "^0.17.3",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {

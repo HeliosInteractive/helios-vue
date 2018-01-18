@@ -1,10 +1,12 @@
 <template>
   <div id="app">
-    <triple-tap></triple-tap>
-    <font-loader @font-loaded="fontLoaded"></font-loader>
-    <loading-screen v-if="loading || fontLoading"></loading-screen>
+    <v-app>
+      <triple-tap></triple-tap>
+      <font-loader @font-loaded="fontLoaded"></font-loader>
+      <loading-screen v-if="loading || fontLoading"></loading-screen>
 
-    <router-view></router-view>
+      <router-view></router-view>
+    </v-app>
   </div>
 </template>
 

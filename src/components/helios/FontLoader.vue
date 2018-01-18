@@ -15,9 +15,9 @@ export default {
       custom: {
         // Use FVD notation to include families
         // Include Montserrat regular (n4, or 'normal') and 900 weight (n9)
-        families: ['Montserrat:n4,n9'],
+        families: ['Montserrat:n4,n9', 'Material Icons'],
         // Path to stylesheet that defines font-face
-        urls: ['/static/fonts/montserrat/stylesheet.css'],
+        urls: ['/static/fonts/montserrat/stylesheet.css', '/static/fonts/material/material-icons.css'],
       },
       active: this.setFontLoaded,
     });
