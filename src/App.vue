@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <triple-tap></triple-tap>
+    <triple-tap @tapped="tripleTapTrigged"></triple-tap>
     <font-loader @font-loaded="fontLoaded"></font-loader>
     <loading-screen v-if="loading || fontLoading"></loading-screen>
 
@@ -34,6 +34,9 @@ export default {
   methods: {
     fontLoaded() {
       this.fontLoading = false;
+    },
+    tripleTapTrigged() {
+      this.$router.push({ name: 'AdminPanel' });
     },
   },
   mounted() {

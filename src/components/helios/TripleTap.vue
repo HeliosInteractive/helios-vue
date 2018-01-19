@@ -30,7 +30,8 @@ export default {
   watch: {
     taps(newTaps) {
       if (newTaps >= 3) {
-        this.$router.push({ name: 'AdminPanel' });
+        this.$emit('tapped');
+        this.taps = 0;
       }
     },
   },

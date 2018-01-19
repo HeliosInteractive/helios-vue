@@ -9,8 +9,8 @@
     "start": "node build/dev-server.js",
     "build": "node build/build.js",
     "postbuild": "node build/postbuild.js",
-    "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
-    "test": "npm run unit",
+    "ci-test": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
+    "test": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js",
     "lint": "eslint --ext .js,.vue src test/unit/specs"
   },
   "dependencies": {
@@ -23,6 +23,7 @@
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
+    "@vue/test-utils": "^1.0.0-beta.10",
     "autoprefixer": "^7.1.5",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.1",
