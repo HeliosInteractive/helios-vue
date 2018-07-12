@@ -1,3 +1,6 @@
+# DEPRECATED
+THIS PROJECT IS DEPRECATED. TO CREATE NEW PROJECTS USE https://github.com/HeliosInteractive/helios-vue-webpack
+
 # vue-helios
 
 A Helioscentric Vue on the Universe.
